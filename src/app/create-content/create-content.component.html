@@ -1,0 +1,24 @@
+<div class="create-content">
+        <label for="id">ID:</label>
+        <input id="id" type="number" [(ngModel)]="contentId">
+
+        <label for="title">Title</label>
+        <input id="title" type="text" [(ngModel)]="contentTitle">
+
+        <label for="description">Description</label>
+        <input id="description" type="text" [(ngModel)]="contentDescription">
+
+        <label for="creator">Creator</label>
+        <input id="creator" type="text" [(ngModel)]="contentCreator">
+
+        <label for="imgurl">Image URL</label>
+        <input id="imgurl" type="text" [(ngModel)]="contentImgurl">
+
+        <label for="type">Type</label>
+        <input id="type" type="text" [(ngModel)]="contentType">
+
+        <button (click)="addBand()">Create</button>
+        <div *ngIf="errorMessage" class="error-message">
+                <strong>Error:</strong> {{ errorMessage }}
+        </div>
+</div>

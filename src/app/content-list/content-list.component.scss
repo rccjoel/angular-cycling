@@ -1,0 +1,32 @@
+.content-card, .content-tags {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin: 1rem;
+    padding: 0 1rem;
+    border: 1px solid black;
+}
+
+img {
+    width: 64px;
+    height: auto;
+}
+
+.first-type {
+    background-color: #ffd6ff;
+}
+
+.second-type {
+    background-color: #c8b6ff;
+}
+
+.no-type {
+    background-color: #bbd0ff;
+}
+
+.exists {
+    color: green;
+}
+
+.not-exists {
+    color: red;
+}
