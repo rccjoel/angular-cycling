@@ -1,10 +1,24 @@
-<app-create-content (newBandEvent)="addBandToList($event)"></app-create-content>
-
 <input type="text" #inputText>
 <button (click)="titleFilter(inputText.value)">Check title</button>
 
 <div *ngIf="searchMessage" [ngClass]="{'exists': searchExists, 'not-exists': !searchExists}">
   {{ searchMessage }}
+</div>
+
+<div class="content-card retrieved">
+  <h3>{{contentItem.title}}</h3>
+  <p>{{contentItem.description}}</p>
+  <p>{{contentItem.creator}}</p>
+  <p appHoverAffect type="underline">{{contentItem.type}}</p>
+  <div *ngFor="let tag of contentItem.tags">
+    <p appHoverAffect tag="bold">{{tag}}</p>
+  </div>
+  <ng-container *ngIf="contentItem.imgURL">
+    <img [src]="contentItem.imgURL" alt="test">
+  </ng-container>
+  <ng-container *ngIf="!contentItem.imgURL">
+    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple49/v4/44/5e/31/445e3189-dd45-bcac-bcf2-18f7c9e00d7c/pr_source.png/256x256bb.jpg" alt="default">
+  </ng-container>
 </div>
 
 <h2>First Type</h2>
@@ -36,7 +50,9 @@
     <div *ngFor="let tag of item.tags">
       <p appHoverAffect tag="bold">{{tag}}</p>
     </div>
-    <img src="{{item.imgURL}}" alt="test">
+    <ng-container *ngIf="item.imgURL">
+      <img [src]="item.imgURL" alt="test">
+    </ng-container>
   </div>
 </div>
 
